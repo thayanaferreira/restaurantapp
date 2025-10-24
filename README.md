@@ -46,8 +46,8 @@ lib/
 ### 2. Clonar e configurar o projeto
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO> yummy
-cd yummy
+git clone https://github.com/thayanaferreira/restaurantapp.git
+cd restaurantapp
 flutter pub get
 ```
 
