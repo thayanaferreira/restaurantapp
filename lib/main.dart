@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
+import 'package:projetofinal/models/constants.dart';
 
 void main() {
-  runApp(Placeholder());
+  runApp(const AppRestaurant());
 }
 
 class AppRestaurant extends StatefulWidget {
@@ -12,8 +14,32 @@ class AppRestaurant extends StatefulWidget {
 }
 
 class _AppRestaurantState extends State<AppRestaurant> {
+  ThemeMode themeMode = ThemeMode.light;
+  ColorSelection colorSelected = ColorSelection.pink;
+
+  void _changeThemeMode(ThemeMode mode) {
+    setState(() {
+      themeMode = mode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: "Yummy",
+      debugShowCheckedModeBanner: false,
+      themeMode: themeMode,
+      theme: ThemeData(
+        colorSchemeSeed: colorSelected.color,
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: colorSelected.color,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+      ),
+      home: Home(onThemeModeChanged: _changeThemeMode),
+    );
   }
 }
